@@ -1,0 +1,19 @@
+import socket
+import os
+
+
+s = socket.socket()
+hostname = socket.gethostname()
+host = socket.gethostbyname(hostname)  
+port = 6666
+
+s.connect((host, port))
+
+while True:
+    data = s.recv(1024)
+    
+
+    if len(data) > 0:
+        data= str(data,"utf-8")
+        print(data, end="")
+
